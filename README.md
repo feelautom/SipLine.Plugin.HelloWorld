@@ -26,3 +26,7 @@ Ce plugin sert d'implémentation de référence pour les développeurs souhaitan
 
 ## 📄 Licence
 Ce projet est sous licence MIT.
+
+## Author
+
+Built by [FeelAutom](https://feelautom.fr) — contact@feelautom.fr
