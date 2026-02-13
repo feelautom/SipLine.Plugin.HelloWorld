@@ -2,110 +2,51 @@ using System.Windows.Input;
 using Microsoft.Extensions.Logging;
 using SipLine.Plugin.Sdk;
 
-namespace SipLine.Plugin.HelloWorld;
-
-/// <summary>
-/// Plugin de démonstration "Hello World".
-/// Montre comment utiliser le SDK SipLine pour créer un plugin.
-/// </summary>
-public class HelloWorldPlugin : ISipLinePlugin
+namespace SipLine.Plugin.HelloWorld
 {
-    public string Id => "hello-world";
-    public string Name => "Hello World";
-    public string Description => "Plugin de démonstration SipLine";
-    public Version Version => new(1, 0, 0);
-    public string Author => "SipLine Team";
-    public string? WebsiteUrl => null;
-    public string? IconPathData => "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z";
-    public bool HasSettingsUI => false;
-
-    private IPluginContext? _context;
-    private int _callCount = 0;
-
-    public Task InitializeAsync(IPluginContext context)
+    public class HelloWorldPlugin : ISipLinePlugin
     {
-        _context = context;
+        public string Id => "com.sipline.helloworld";
+        public string Name => "Hello World";
+        public string Description => "Un plugin de démonstration qui affiche un message de bienvenue.";
+        public Version Version => new Version(1, 0, 0);
+        public string Author => "SipLine Team";
+        public string IconPathData => "M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5";
+        public string WebsiteUrl => "https://sipline.feelautom.fr";
+        public bool HasSettingsUI => false;
+        public object? GetSettingsUI() => null;
 
-        // Log au démarrage
-        _context.Logger.LogInformation("Hello World plugin initialisé!");
-        _context.AddLog("Hello World plugin chargé avec succès", "Info");
+        private IPluginContext? _context;
 
-        // Ajouter un bouton dans la toolbar
-        _context.RegisterToolbarButton(new PluginToolbarButton
+        public Task InitializeAsync(IPluginContext context)
         {
-            Id = "hello-btn",
-            Tooltip = "Afficher un message Hello World",
-            IconPathData = IconPathData ?? "",
-            Order = 100,
-            Command = new SimpleCommand(OnHelloButtonClick)
-        });
+            _context = context;
+            _context.Logger.LogInformation("Plugin HelloWorld initialisé !");
 
-        // S'abonner aux événements d'appel
-        _context.SipService.OnCallIncoming += OnCallIncoming;
-        _context.SipService.OnCallEnded += OnCallEnded;
+            _context.RegisterToolbarButton(new PluginToolbarButton
+            {
+                Id = "hello-btn",
+                IconPathData = IconPathData,
+                Tooltip = "Dire Bonjour",
+                Command = new SimpleCommand(() => 
+                {
+                    _context.ShowSnackbar("Bonjour de la part du plugin HelloWorld !", SnackbarSeverity.Success);
+                })
+            });
 
-        return Task.CompletedTask;
-    }
-
-    private void OnHelloButtonClick()
-    {
-        _context?.ShowSnackbar($"Hello World! Appels reçus: {_callCount}", SnackbarSeverity.Success);
-        _context?.AddLog($"Bouton Hello cliqué - Total appels: {_callCount}", "Info");
-    }
-
-    private void OnCallIncoming(CallInfo call)
-    {
-        _callCount++;
-        _context?.Logger.LogInformation("Appel entrant de {Caller} (total: {Count})",
-            call.CallerNumber, _callCount);
-    }
-
-    private void OnCallEnded(CallEndedInfo info)
-    {
-        _context?.Logger.LogInformation("Appel terminé - Durée: {Duration}s",
-            info.Duration.TotalSeconds);
-    }
-
-    public object? GetSettingsUI() => null;
-
-    public Task ShutdownAsync()
-    {
-        _context?.Logger.LogInformation("Hello World plugin arrêté");
-
-        if (_context != null)
-        {
-            // Supprimer le bouton de toolbar
-            _context.UnregisterToolbarButton("hello-btn");
-
-            // Se désabonner des événements
-            _context.SipService.OnCallIncoming -= OnCallIncoming;
-            _context.SipService.OnCallEnded -= OnCallEnded;
+            return Task.CompletedTask;
         }
 
-        return Task.CompletedTask;
+        public Task ShutdownAsync() => Task.CompletedTask;
+        public void Dispose() { }
     }
 
-    public void Dispose()
+    internal class SimpleCommand : ICommand
     {
-        // Rien à libérer pour ce plugin simple
+        private readonly Action _action;
+        public SimpleCommand(Action action) => _action = action;
+        public bool CanExecute(object? parameter) => true;
+        public void Execute(object? parameter) => _action();
+        public event EventHandler? CanExecuteChanged { add { } remove { } }
     }
-}
-
-/// <summary>
-/// Implémentation simple de ICommand pour les boutons.
-/// </summary>
-internal class SimpleCommand : ICommand
-{
-    private readonly Action _execute;
-
-    public SimpleCommand(Action execute)
-    {
-        _execute = execute;
-    }
-
-    public event EventHandler? CanExecuteChanged;
-
-    public bool CanExecute(object? parameter) => true;
-
-    public void Execute(object? parameter) => _execute();
 }
