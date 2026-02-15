@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter</value></resheader>
+  <data name="GuideTitle" xml:space="preserve"><value>Guide Développeur</value></data>
+  <data name="GuideSubtitle" xml:space="preserve"><value>Bienvenue dans l'écosystème SipLine !</value></data>
+  <data name="WhatIsPlugin" xml:space="preserve"><value>C'est quoi un Plugin ?</value></data>
+  <data name="WhatIsPluginDesc" xml:space="preserve"><value>Les plugins SipLine sont des modules externes (DLL) qui étendent les fonctionnalités du softphone. Ils permettent d'intégrer des services tiers, d'ajouter des outils métier ou de personnaliser l'expérience utilisateur.</value></data>
+  <data name="Capabilities" xml:space="preserve"><value>Ce que vous pouvez faire</value></data>
+  <data name="CapCallControl" xml:space="preserve"><value>Contrôle d'Appels</value></data>
+  <data name="CapCallControlDesc" xml:space="preserve"><value>Répondre, raccrocher, couper le micro, mettre en attente.</value></data>
+  <data name="CapUiExtensions" xml:space="preserve"><value>UI Extensions</value></data>
+  <data name="CapUiExtensionsDesc" xml:space="preserve"><value>Ajouter des boutons en barre latérale, des onglets ou des pages complètes.</value></data>
+  <data name="CapEvents" xml:space="preserve"><value>Événements</value></data>
+  <data name="CapEventsDesc" xml:space="preserve"><value>Réagir aux appels entrants, sortants et changements d'état SIP.</value></data>
+  <data name="CapStorage" xml:space="preserve"><value>Stockage &amp; Config</value></data>
+  <data name="CapStorageDesc" xml:space="preserve"><value>Sauvegarder des paramètres sécurisés et accéder à l'historique.</value></data>
+  <data name="QuickStart" xml:space="preserve"><value>Démarrage Rapide</value></data>
+  <data name="QuickStartStep1" xml:space="preserve"><value>1. Créez un projet Class Library .NET 9</value></data>
+  <data name="QuickStartStep2" xml:space="preserve"><value>2. Installez le package SipLine.Plugin.Sdk</value></data>
+  <data name="QuickStartStep3" xml:space="preserve"><value>3. Implémentez l'interface ISipLinePlugin</value></data>
+  <data name="ViewOnGithub" xml:space="preserve"><value>Voir sur GitHub</value></data>
+  <data name="ReadDocs" xml:space="preserve"><value>Lire la Doc</value></data>
+  <data name="SidebarTitle" xml:space="preserve"><value>Guide SDK</value></data>
+  <data name="SidebarTooltip" xml:space="preserve"><value>Documentation développeur</value></data>
+  <data name="PluginName" xml:space="preserve"><value>Guide de Développement</value></data>
+  <data name="PluginDescription" xml:space="preserve"><value>Découvrez comment créer vos propres plugins pour SipLine.</value></data>
+  <data name="SnackbarWorking" xml:space="preserve"><value>Le plugin HelloWorld fonctionne toujours !</value></data>
+  <data name="SdkCardDesc" xml:space="preserve"><value>Le package NuGet officiel pour développer vos extensions.</value></data>
+  <data name="DocsCardDesc" xml:space="preserve"><value>Découvrez les API, les événements et les bonnes pratiques.</value></data>
+  <data name="ErrorOpeningLink" xml:space="preserve"><value>Erreur lors de l'ouverture du lien.</value></data>
+</root>

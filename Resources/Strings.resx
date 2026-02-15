@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter</value></resheader>
+  <data name="GuideTitle" xml:space="preserve"><value>Developer Guide</value></data>
+  <data name="GuideSubtitle" xml:space="preserve"><value>Welcome to the SipLine ecosystem!</value></data>
+  <data name="WhatIsPlugin" xml:space="preserve"><value>What is a Plugin?</value></data>
+  <data name="WhatIsPluginDesc" xml:space="preserve"><value>SipLine plugins are external modules (DLLs) that extend the softphone's functionality. They allow integrating third-party services, adding business tools, or customizing the user experience.</value></data>
+  <data name="Capabilities" xml:space="preserve"><value>What you can do</value></data>
+  <data name="CapCallControl" xml:space="preserve"><value>Call Control</value></data>
+  <data name="CapCallControlDesc" xml:space="preserve"><value>Answer, hang up, mute, hold.</value></data>
+  <data name="CapUiExtensions" xml:space="preserve"><value>UI Extensions</value></data>
+  <data name="CapUiExtensionsDesc" xml:space="preserve"><value>Add sidebar buttons, tabs, or full pages.</value></data>
+  <data name="CapEvents" xml:space="preserve"><value>Events</value></data>
+  <data name="CapEventsDesc" xml:space="preserve"><value>React to incoming/outgoing calls and SIP state changes.</value></data>
+  <data name="CapStorage" xml:space="preserve"><value>Storage &amp; Config</value></data>
+  <data name="CapStorageDesc" xml:space="preserve"><value>Save secure settings and access call history.</value></data>
+  <data name="QuickStart" xml:space="preserve"><value>Quick Start</value></data>
+  <data name="QuickStartStep1" xml:space="preserve"><value>1. Create a .NET 9 Class Library project</value></data>
+  <data name="QuickStartStep2" xml:space="preserve"><value>2. Install the SipLine.Plugin.Sdk package</value></data>
+  <data name="QuickStartStep3" xml:space="preserve"><value>3. Implement the ISipLinePlugin interface</value></data>
+  <data name="ViewOnGithub" xml:space="preserve"><value>View on GitHub</value></data>
+  <data name="ReadDocs" xml:space="preserve"><value>Read the Docs</value></data>
+  <data name="SidebarTitle" xml:space="preserve"><value>SDK Guide</value></data>
+  <data name="SidebarTooltip" xml:space="preserve"><value>Developer documentation</value></data>
+  <data name="PluginName" xml:space="preserve"><value>Developer Guide</value></data>
+  <data name="PluginDescription" xml:space="preserve"><value>Discover how to create your own plugins for SipLine.</value></data>
+  <data name="SnackbarWorking" xml:space="preserve"><value>The HelloWorld plugin is still working!</value></data>
+  <data name="SdkCardDesc" xml:space="preserve"><value>The official NuGet package to develop your extensions.</value></data>
+  <data name="DocsCardDesc" xml:space="preserve"><value>Discover the APIs, events and best practices.</value></data>
+  <data name="ErrorOpeningLink" xml:space="preserve"><value>Error opening link.</value></data>
+</root>

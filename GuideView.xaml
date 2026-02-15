@@ -1,0 +1,95 @@
+<UserControl x:Class="SipLine.Plugin.HelloWorld.GuideView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:theme="clr-namespace:SipLine.Plugin.Sdk.Theme;assembly=SipLine.Plugin.Sdk">
+    <Grid Background="{DynamicResource {x:Static theme:PluginTheme.BaseBrushKey}}">
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel MaxWidth="800" HorizontalAlignment="Center" Margin="24">
+                
+                <!-- Header -->
+                <TextBlock Text="{Binding Title}" FontSize="28" FontWeight="Bold" Foreground="{DynamicResource {x:Static theme:PluginTheme.TextBrushKey}}" Margin="0,0,0,8"/>
+                <TextBlock Text="{Binding WelcomeMessage}" FontSize="16" Foreground="{DynamicResource {x:Static theme:PluginTheme.MutedBrushKey}}" Margin="0,0,0,32"/>
+
+                <!-- Section: Introduction -->
+                <Border Background="{DynamicResource {x:Static theme:PluginTheme.InputBrushKey}}" CornerRadius="12" Padding="24" Margin="0,0,0,24" BorderBrush="{DynamicResource {x:Static theme:PluginTheme.BorderBrushKey}}" BorderThickness="1">
+                    <StackPanel>
+                        <TextBlock Text="{Binding WhatIsPlugin}" FontSize="18" FontWeight="SemiBold" Foreground="{DynamicResource {x:Static theme:PluginTheme.AccentBrushKey}}" Margin="0,0,0,12"/>
+                        <TextBlock Text="{Binding WhatIsPluginDesc}" 
+                                   Foreground="{DynamicResource {x:Static theme:PluginTheme.TextBrushKey}}" TextWrapping="Wrap" LineHeight="20"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Section: SDK -->
+                <Grid Margin="0,0,0,24">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <Border Grid.Column="0" Background="{DynamicResource WpfInputBrush}" CornerRadius="12" Padding="20" Margin="0,0,12,0" BorderBrush="{DynamicResource WpfBorderBrush}" BorderThickness="1">
+                        <StackPanel>
+                            <Path Data="M12 22v-5 M15 8V2 M17 8a1 1 0 0 1 1 1v4a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V9a1 1 0 0 1 1-1z M9 8V2" 
+                                  Stroke="{DynamicResource WpfAccentBrush}" StrokeThickness="2" Width="24" Height="24" HorizontalAlignment="Left" Margin="0,0,0,12"/>
+                            <TextBlock Text="SipLine.Plugin.Sdk" FontSize="16" FontWeight="Bold" Foreground="{DynamicResource WpfTextBrush}" Margin="0,0,0,8"/>
+                            <TextBlock Text="{Binding SdkCardDesc}" Foreground="{DynamicResource WpfMutedBrush}" TextWrapping="Wrap" FontSize="12" Margin="0,0,0,16"/>
+                            <Button Content="{Binding ViewOnGithub}" Command="{Binding OpenSdkGithubCommand}" HorizontalAlignment="Left" Padding="16,8" Style="{DynamicResource WpfAccentButton}"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border Grid.Column="1" Background="{DynamicResource WpfInputBrush}" CornerRadius="12" Padding="20" Margin="12,0,0,0" BorderBrush="{DynamicResource WpfBorderBrush}" BorderThickness="1">
+                        <StackPanel>
+                            <Path Data="M4 19.5A2.5 2.5 0 0 1 6.5 17H20 M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" 
+                                  Stroke="{DynamicResource WpfAccentBrush}" StrokeThickness="2" Width="24" Height="24" HorizontalAlignment="Left" Margin="0,0,0,12"/>
+                            <TextBlock Text="Documentation" FontSize="16" FontWeight="Bold" Foreground="{DynamicResource WpfTextBrush}" Margin="0,0,0,8"/>
+                            <TextBlock Text="{Binding DocsCardDesc}" Foreground="{DynamicResource WpfMutedBrush}" TextWrapping="Wrap" FontSize="12" Margin="0,0,0,16"/>
+                            <Button Content="{Binding ReadDocs}" Command="{Binding OpenDocumentationCommand}" HorizontalAlignment="Left" Padding="16,8" Style="{DynamicResource WpfButton}"/>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+
+                <!-- Section: Capabilities -->
+                <TextBlock Text="{Binding Capabilities}" FontSize="20" FontWeight="Bold" Foreground="{DynamicResource WpfTextBrush}" Margin="0,0,0,16"/>
+                
+                <UniformGrid Columns="2" Margin="0,0,0,24">
+                    <StackPanel Margin="0,0,12,12">
+                        <TextBlock Text="{Binding CapCallControl}" FontWeight="SemiBold" Foreground="{DynamicResource WpfTextBrush}"/>
+                        <TextBlock Text="{Binding CapCallControlDesc}" FontSize="12" Foreground="{DynamicResource WpfMutedBrush}" TextWrapping="Wrap"/>
+                    </StackPanel>
+                    <StackPanel Margin="12,0,0,12">
+                        <TextBlock Text="{Binding CapUiExtensions}" FontWeight="SemiBold" Foreground="{DynamicResource WpfTextBrush}"/>
+                        <TextBlock Text="{Binding CapUiExtensionsDesc}" FontSize="12" Foreground="{DynamicResource WpfMutedBrush}" TextWrapping="Wrap"/>
+                    </StackPanel>
+                    <StackPanel Margin="0,12,12,0">
+                        <TextBlock Text="{Binding CapEvents}" FontWeight="SemiBold" Foreground="{DynamicResource WpfTextBrush}"/>
+                        <TextBlock Text="{Binding CapEventsDesc}" FontSize="12" Foreground="{DynamicResource WpfMutedBrush}" TextWrapping="Wrap"/>
+                    </StackPanel>
+                    <StackPanel Margin="12,12,0,0">
+                        <TextBlock Text="{Binding CapStorage}" FontWeight="SemiBold" Foreground="{DynamicResource WpfTextBrush}"/>
+                        <TextBlock Text="{Binding CapStorageDesc}" FontSize="12" Foreground="{DynamicResource WpfMutedBrush}" TextWrapping="Wrap"/>
+                    </StackPanel>
+                </UniformGrid>
+
+                <!-- Section: Quick Start -->
+                <Border Background="{DynamicResource WpfSurfaceBrush}" CornerRadius="12" Padding="24" BorderBrush="{DynamicResource WpfBorderBrush}" BorderThickness="1">
+                    <StackPanel>
+                        <TextBlock Text="{Binding QuickStart}" FontSize="18" FontWeight="SemiBold" Foreground="{DynamicResource WpfTextBrush}" Margin="0,0,0,16"/>
+                        
+                        <TextBlock Text="{Binding QuickStartStep1}" Foreground="{DynamicResource WpfTextBrush}" Margin="0,0,0,8"/>
+                        <TextBlock Text="{Binding QuickStartStep2}" Foreground="{DynamicResource WpfTextBrush}" Margin="0,0,0,8"/>
+                        <TextBlock Text="{Binding QuickStartStep3}" Foreground="{DynamicResource WpfTextBrush}" Margin="0,0,0,8"/>
+                        
+                        <Border Background="{DynamicResource WpfBaseBrush}" Padding="12" CornerRadius="6" Margin="0,8,0,0">
+                            <TextBlock FontFamily="Consolas" FontSize="12" Foreground="{DynamicResource WpfAccentBrush}" TextWrapping="NoWrap">
+                                public class MyPlugin : ISipLinePlugin {<LineBreak/>
+                                \u00A0\u00A0public string Id => "com.mycorp.plugin";<LineBreak/>
+                                \u00A0\u00A0...<LineBreak/>
+                                }
+                            </TextBlock>
+                        </Border>
+                    </StackPanel>
+                </Border>
+
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>
